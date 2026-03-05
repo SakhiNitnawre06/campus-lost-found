@@ -12,8 +12,13 @@ dotenv.config();
 
 const app = express();
 
-// Middleware
-app.use(cors());
+// CORS FIX
+app.use(cors({
+  origin: "https://campus-lost-found-frontend-tle2.onrender.com",
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
+
 app.use(express.json());
 
 // Mongo Connection
